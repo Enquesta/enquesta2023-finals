@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Q5</title>
+  <link href="./tailwind.min.css" rel="stylesheet">
+  <style>
+    .button {
+      padding: 16px 60px; /* Adjust the padding as needed */
+      font-size: 59px; /* Adjust the font size as needed */
+      border: none;
+      cursor: pointer;
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    body{
+      background-image: url('./images/logoslides.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .card {
+      background-color: blue;
+      color: white;
+      font-size: 30px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen">
+  <div class="button-container">
+    <button id="q1-c" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Mendelevium</button>
+    <button id="q1-ic" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Seaborgium</button>
+    <button id="q1-c" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Einsteinium</button>
+    <button id="q1-ic" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Lawrencium</button>
+    <button id="q1-c" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Californium</button>
+    <button id="q1-c" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Berkelium</button>
+    <button id="q1-ic" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Nobelium</button>
+    <button id="q1-ic" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Plutonium</button>
+    <button id="q1-c" class="button bg-blue-400 text-white font-bold rounded-lg   focus:outline-none" onclick="checkAnswer1(event, this)">Americium</button>
+  </div>
+  <div class="card mt-4 p-4">
+    <div id="q1-scoreCard">
+      Score: <span id="q1-scoreValue">0</span>
+    </div>
+  </div>
+  <div class="mt-4 flex items-end">
+    <a href="./index.html#/16" class="p-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 focus:outline-none ml-auto">Return</a>
+  </div>
+  <script>
+    var score = 0;
+    var correct = 0;
+
+    function checkAnswer1(event, button) {
+      event.stopPropagation();
+
+      if (button.id === "q1-c") {
+        button.classList.remove("bg-blue-400");
+        button.classList.add("bg-green-500");
+        button.style.visibility = "hidden";
+        correct += 1;
+        score += 10;
+        if(correct == 5){
+          score += 10;
+        }
+      } else if (button.id === "q1-ic") {
+        button.classList.remove("bg-blue-400");
+        button.classList.add("bg-red-500");
+        score = 0;
+      }
+
+      document.getElementById("q1-scoreValue").innerText = score;
+    }
+  </script>
+</body>
+</html>
