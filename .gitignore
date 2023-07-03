@@ -2,3 +2,4 @@ node_modules/
 bower.json
 CONTRIBUTING.md
 .travis.yml
+.vscode/
